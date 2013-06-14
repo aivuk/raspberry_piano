@@ -5,8 +5,8 @@ import random
 import pygame
 from pygame.locals import *
 
-swidth = 500
-sheight = 60
+swidth = 1000
+sheight = 500
 
 pygame.init()
 pygame.mixer.set_num_channels(16)
@@ -27,7 +27,7 @@ for i, n in enumerate(note_keys):
 
 for i, n in enumerate(track_keys):
     x_dis = 2*swidth/10.0 + 2
-    rects[n] = ((0, i*20, 255), (x_dis + i*swidth/10.0 + i*1, sheight/2.0, swidth/10.0, sheight/2.0))
+    rects[n] = ((0, i*40, 255), (x_dis + i*swidth/10.0 + i*1, sheight/2.0, swidth/10.0, sheight/2.0))
 
 playing_tracks = set()
 
