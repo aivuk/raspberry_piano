@@ -9,6 +9,7 @@ swidth = 1000
 sheight = 500
 
 pygame.init()
+pygame.mouse.set_visible(False)
 pygame.mixer.set_num_channels(16)
 screen = pygame.display.set_mode((swidth, sheight))
 clock = pygame.time.Clock()
