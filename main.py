@@ -10,6 +10,7 @@ sheight = 500
 
 pygame.init()
 pygame.mouse.set_visible(False)
+# pygame.mixer.pre_init(11025, -16, 16, 256)
 pygame.mixer.set_num_channels(16)
 screen = pygame.display.set_mode((swidth, sheight))
 clock = pygame.time.Clock()
@@ -18,7 +19,7 @@ note_keys = [K_q, K_w, K_e, K_r, K_t, K_y, K_u, K_i, K_o, K_p]
 track_keys = [K_a, K_s, K_d, K_j, K_k, K_l]
 
 notes = {}
-tracks = [] 
+tracks = []
 tkey = {}
 
 rects = {}
@@ -71,14 +72,14 @@ def proc_events(notes):
                 notes[event.key].fadeout(500)
                 pygame.draw.rect(screen, (0,0,0), rects[event.key][1])
             elif event.key in track_keys:
-                tracks[tkey[event.key]].fadeout(1000) 
+                tracks[tkey[event.key]].fadeout(1000)
                 playing_tracks.remove(tkey[event.key])
                 tkey.pop(event.key)
                 pygame.draw.rect(screen, (0,0,0), rects[event.key][1])
 
 
     return True
-     
+
 
 load_sounds(notes, tracks)
 tracks_range = set(xrange(len(tracks)))
@@ -86,7 +87,7 @@ tracks_range = set(xrange(len(tracks)))
 running = True
 while running:
     clock.tick(60)
-    running = proc_events(notes)    
+    running = proc_events(notes)
     pygame.display.update()
 
 pygame.quit()
