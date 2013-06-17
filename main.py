@@ -8,10 +8,9 @@ from pygame.locals import *
 swidth = 1000
 sheight = 500
 
+pygame.mixer.pre_init(44100, -16, 16, 2048)
 pygame.init()
 pygame.mouse.set_visible(False)
-# pygame.mixer.pre_init(11025, -16, 16, 256)
-pygame.mixer.set_num_channels(16)
 screen = pygame.display.set_mode((swidth, sheight))
 clock = pygame.time.Clock()
 test_sound = pygame.mixer.Sound('match0.wav')
