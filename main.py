@@ -61,6 +61,11 @@ def proc_events(notes):
                 notes[event.key].play()
                 pygame.draw.rect(screen, rects[event.key][0], rects[event.key][1])
             elif event.key in track_keys and not tkey.has_key(event.key):
+                try:
+                    tracks[tkey[event.key]].stop()
+                except:
+                    pass
+
                 random_track = random.choice(list(tracks_range - playing_tracks))
                 tkey[event.key] = random_track
                 tracks[random_track].play(fade_ms=1000, loops=-1)
